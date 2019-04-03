@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var jwt = require('jsonwebtoken');
+var config = require('./config/config');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -15,6 +18,8 @@ const connection = require('./config/connector');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.set('secret', config.secret);
 
 app.use(logger('dev'));
 app.use(express.json());

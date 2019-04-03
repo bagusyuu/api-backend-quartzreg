@@ -165,7 +165,7 @@ module.exports = {
                 });
             }
             return employee.update(params).then(() =>{
-                res.status(200).send({
+                res.status(204).send({
                     message : "Employee Deleted from Company!"
                 });
             }).catch((error) =>{

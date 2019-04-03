@@ -5,7 +5,7 @@ var sequelize = require('sequelize');
 
 module.exports = {
     list(req, res){
-        const query = {};
+        var query = {};
         if(req.query.name){
             let lookupValue = req.query.name.toLowerCase();
             query.name = {};
@@ -14,15 +14,7 @@ module.exports = {
         console.log(query);
         
         return Company.findAll({
-            where : query,
-            // include: [{
-            //     model: Employee,
-            //     attributes: ['id', 'user_id', 'company_id', 'employee_code', 'title', 'startat', 'endat', 'status'],
-            //     as: 'employee',
-            //     where : {
-            //         status : 0
-            //     }
-            // }]
+            // where : query,
         }).then(companies => {
             res.status(200).send(companies);
         }).catch(error => {

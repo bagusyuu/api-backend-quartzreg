@@ -192,7 +192,7 @@ module.exports = {
         });
     },
     listHistory(req, res){
-        return User.findAll({
+        return User.findOne({
             where : {
                 ktp : req.params.ktp
             }, 
